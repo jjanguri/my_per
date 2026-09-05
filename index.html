@@ -416,8 +416,9 @@ button:hover { background: #3e332a; }
 .headerTop h2 { margin: 0; font-size: 1.35rem; }
 
 .headerBtns { display: flex; gap: 6px; align-items: center; width: 100%; }
+.leftPanel .headerBtns { margin: 0.6rem 0 0.9rem; }
 .headerBtns .smallBtn { margin-top: 0; white-space: nowrap; font-size: 0.8rem; padding: 0.45rem 0.65rem; }
-.headerBtns .highlightBtn, .headerBtns button:nth-child(2) { flex: 1; text-align: center; }
+.headerBtns .highlightBtn, .headerBtns .likeBtn { flex: 1; text-align: center; }
 
 .iconOnlyBtn {
   padding: 0.45rem 0.6rem !important;
@@ -759,7 +760,7 @@ mark { background: #f3e1b9; border-radius: 2px; }
   /* 화면 전체 글씨를 살짝 작게: 대부분의 글자 크기가 rem 단위라서
      기준 크기(html)만 낮추면 명대사 본문/버튼/제목 등이 비율대로 함께 작아짐 */
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   /* 전체 레이아웃을 1열(세로)로 변경 */
@@ -830,7 +831,7 @@ mark { background: #f3e1b9; border-radius: 2px; }
     flex-wrap: wrap;
   }
   
-  .headerBtns .smallBtn {
+  .headerBtns .smallBtn:not(.iconOnlyBtn) {
     flex: 1 1 calc(50% - 6px);
   }
 
@@ -891,6 +892,10 @@ mark { background: #f3e1b9; border-radius: 2px; }
       <button class="sortIcon" onclick="showOnboardingGuide(true)" title="사용법 가이드 다시 보기">❓</button>
       <a class="sortIcon" href="https://www.postype.com" target="_blank" rel="noopener noreferrer" title="포스타입 바로가기">📮</a>
     </h2>
+    <div class="headerBtns">
+      <button class="smallBtn highlightBtn" onclick="handleHighlightButton()">✨ 선택 문장 하이라이트</button>
+      <button class="smallBtn likeBtn" onclick="showLikedQuotes()">♥ 좋아요한 명대사 보기</button>
+    </div>
     <input type="text" id="potaInput" placeholder="작품명/키워드/해시태그/작가명/본문 입력" onkeydown="enterSearch(event)">
     <button onclick="searchQuotes()">검색</button>
     <button id="refreshBtn" onclick="refreshPage()">새로고침</button>
@@ -905,8 +910,6 @@ mark { background: #f3e1b9; border-radius: 2px; }
         <h2>명대사 추가</h2>
       </div>
       <div class="headerBtns">
-        <button class="smallBtn highlightBtn" onclick="handleHighlightButton()">✨ 선택 문장 하이라이트</button>
-        <button class="smallBtn" onclick="showLikedQuotes()">♥ 좋아요한 명대사 보기</button>
         <button class="smallBtn iconOnlyBtn" onclick="exportData()" title="데이터 백업 (JSON 내보내기)">💾</button>
         <button class="smallBtn iconOnlyBtn" onclick="importData()" title="데이터 복구 (JSON 불러오기)">📂</button>
         <button class="smallBtn iconOnlyBtn" id="syncBtn" onclick="openSyncModal()" title="다른 기기와 동기화">🔗</button>
