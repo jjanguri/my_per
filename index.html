@@ -1694,12 +1694,12 @@ function createRichToolbar(textarea, getBaseFont) {
 
   const hint = document.createElement("div");
   hint.className = "richHint";
-  hint.textContent = "💡 글자를 드래그하면 글씨체·크기를 바꾸는 창이 떠요";
+  //hint.textContent = "💡 글자를 드래그하면 글씨체·크기를 바꾸는 창이 떠요";
 
   const preview = document.createElement("div");
   preview.className = "richPreview";
 
-  wrap.appendChild(hint);
+  //wrap.appendChild(hint);
   wrap.appendChild(preview);
 
   function refresh() {
@@ -3583,7 +3583,7 @@ function showOnboardingGuide(forceShow = false) {
           <div class="guide-icon">✏️</div>
           <div class="guide-text">
             <h4>폰트</h4>
-            <p>명대사의 폰트를 바꾸고, *을 통해 글꼴을 바꿀 수 있습니다. *이탤릭체* **볼드체** ***이탤릭체 + 볼드체***</p>
+            <p>*이탤릭체* **볼드체** ***이탤릭체 + 볼드체*** 작성 중 드래그하여 서식 지정 가능</p>
           </div>
         </div>
 
